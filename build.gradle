@@ -9,6 +9,25 @@ repositories {
     mavenCentral()
 }
 
+task runApp(type: JavaExec) {
+    main = 'dev.struggzard.sample.solrsearch.App'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 dependencies {
+    // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    // web framework
+    implementation "io.javalin:javalin:3.10.1"
+
+    // json -> model deserialization (for REST services)
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.11.2"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.2"
+
+    // solr client
+    implementation "org.apache.solr:solr-solrj:8.6.2"
+
+    // logging
+    implementation "org.slf4j:slf4j-simple:1.7.30"
 }
